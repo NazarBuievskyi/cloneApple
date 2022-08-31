@@ -165,3 +165,28 @@ nav, a {
   font-weight: bold;
   font-size: 0.8rem;
 }
+
+/* forth page slider  */
+
+.forth-page {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+.purchase-left{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.phone-gallery {
+  display: flex;
+  align-self: flex-start;
+}
+.phone-gallery-container {
+  min-width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
