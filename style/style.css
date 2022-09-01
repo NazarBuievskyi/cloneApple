@@ -100,7 +100,7 @@ nav, a {
 .smoke-video {
   position: absolute;
   height: 100%;
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
   z-index: 1;
 }
@@ -176,8 +176,11 @@ nav, a {
 
 .purchase-left{
   display: flex;
+  flex: 1;
   flex-direction: column;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 .phone-gallery {
@@ -189,4 +192,36 @@ nav, a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.swatch-container {
+  text-align: center;
+}
+.swatches img {
+  padding: 0.5rem 0.3rem;
+  cursor: pointer;
+}
+
+.swatch-container span {
+  font-size: 0.8rem;
+}
+
+
+
+.purchase-right {
+  flex: 1;
+  position: relative;
+  background: black;
+}
+
+.purchase-right img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0%) scale(0.9);
+  transform-origin: bottom;
+}
+
+.phone-gallery img {
+  transform: scale(0.9);
 }
