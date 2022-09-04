@@ -1,16 +1,3 @@
-//time line
-
-// const tlIntro = gsap.timeline({
-//     scrollTrigger: {
-//         trigger: '.first-page',
-//         start: '0%',
-//         end: '100%',
-//         scrub: true,
-//         markers: true,
-//     }
-// })
-
-// tlIntro.fromTo('nav', {opacity: 1}, {opacity: 0})
 
 const tlIntro = gsap.timeline({
     scrollTrigger: {
@@ -21,9 +8,6 @@ const tlIntro = gsap.timeline({
         pinSpacing: false,
     }
 })
-
-
-
 
 const tlH = gsap.timeline({
     scrollTrigger: {
@@ -51,3 +35,62 @@ const tlHRemove = gsap.timeline({
 
 tlHRemove.to('.highlight', 
 {color: 'rgba(255,255,255, 0.4)', stagger: 1})
+
+
+const tlSplit = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.third-page',
+        start: '-30%',
+        end: '15%',
+        scrub: 'true',
+    }
+})
+
+tlSplit.fromTo('.large-phone', {x: '40%'}, {x: '30%'})
+tlSplit.fromTo('.small-phone', {x: '-40%'}, {x: '-30%'}, '<')
+tlSplit.fromTo('.product-text-left', {x: 50, opacity: 0}, {opacity: 1, x: 0}, '<')
+tlSplit.fromTo('.product-text-right', {x: -50, opacity: 0}, {opacity: 1, x: 0}, '<')
+
+const tlSplitPin = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.third-page',
+        pin: true,
+        pinSpacing: false,
+        start: '0%',
+        end: '100%',
+    }
+})
+
+
+//Carouesel
+
+const swatches = document.querySelectorAll('.swatches img')
+const gallery = document.querySelector('.phone-gallery')
+const slides = document.querySelectorAll('.phone-gallery-container')
+
+
+let currentSwatch = 'blue';
+let topIndex = 2;
+
+swatches.forEach((swatch, index) => {
+    const coord = slides[index].getBoundingClientRect().left;
+
+    swatch.addEventListener('click', (e) => {
+        let swatchName = e.target.getAttribute('swatch')
+        let closeUp = document.querySelector('.' + swatchName);
+        if (currentSwatch === swatchName) return;
+
+        gsap.set(closeUp, {zIndex: topIndex})
+        gsap.fromTo(closeUp, {opacity: 0}, {opacity: 1, duration: 1})
+
+        //gallery
+        gsap.to(gallery, {x: -coord, duration: 1, ease: 'back.out(1)'})
+        //ZInde -
+        topIndex++;
+        currentSwatch = swatchName;
+    })
+})
+
+
+
+
