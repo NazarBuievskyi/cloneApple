@@ -207,7 +207,9 @@ nav, a {
   font-size: 0.8rem;
 }
 
-
+.blue{
+  z-index: 1;
+}
 
 .purchase-right {
   flex: 1;
